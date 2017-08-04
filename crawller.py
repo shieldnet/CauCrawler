@@ -19,13 +19,6 @@ def spider(max_pages):
             'td > a'
         )
         
-        my_nums = soup.select(
-            'tr > td'
-        )
-        
-        for nums in my_nums:
-            print(nums)
-        
         page += 1
         
         data = {}
