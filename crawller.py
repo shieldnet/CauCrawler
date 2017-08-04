@@ -29,4 +29,4 @@ def spider(max_pages):
         for i in data:
             print (i)
 
-spider(2)
+spider(3)
