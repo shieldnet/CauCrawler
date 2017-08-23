@@ -19,7 +19,7 @@ data_ict = 'ict.txt'
 my_token = '406303272:AAF4zhQXYz0pR-mD6kMZgQX-mKmOLp9vFQA'
 bot =telegram.Bot(token = my_token)
 updates = bot.getUpdates()
-chat_id = bot.getUpdates()[-1].message.chat.id
+chat_id = '157607661'
 
 
 # Caucse Notice
@@ -75,7 +75,7 @@ def save_information(file_name, site, data):
         fp.write(site + ' > ' + s.strip() + '\n')
      
     fp.close()
-    print('save done')
+    print(site + ' save done...')
 
 
 
@@ -109,19 +109,18 @@ def compare_data(new, old):
 
 
 ###### main #####
+
 cmp_old = []
 cmp_new = []
 
 #old
-caucseNotice(2, data_cse)
-ictNotice(2, data_ict)
+print(chat_id)
 load_information(data_cse, cmp_old)
 load_information(data_ict, cmp_old)
 
 while True:
-    
+    print('Sleep 60 seconds...')
     time.sleep(60)
-    del cmp_old[1]
     #new
     caucseNotice(2, data_cse)
     ictNotice(2, data_ict)
@@ -132,4 +131,3 @@ while True:
     
     cmp_old = list(cmp_new)
     del cmp_new[0:]
-    
