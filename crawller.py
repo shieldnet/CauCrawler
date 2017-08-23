@@ -14,13 +14,32 @@ cmp_to = {}
 # file name
 data_cse = 'cse.txt'
 data_ict = 'ict.txt'
+data_chat_id = 'chat_id.txt'
 
 #Telegram Information
 my_token = '406303272:AAF4zhQXYz0pR-mD6kMZgQX-mKmOLp9vFQA'
 bot =telegram.Bot(token = my_token)
 updates = bot.getUpdates()
-chat_id = '157607661'
+chat_id = []
 
+
+# load information from 'data.txt' in program excuted path
+def load_chat_id():
+    fp = open(data_chat_id, "r", encoding='UTF8')
+    
+    while True:
+        line = fp.readline()
+    
+        if not line: break
+        if '#' in line:
+            pass
+        else:
+            if('\n' in line):
+                chat_id.append(str(line[:-1]))
+            else:
+                chat_id.append(str(line))
+    
+    fp.close()
 
 # Caucse Notice
 def caucseNotice(max_pages, fname):
@@ -100,15 +119,18 @@ def clear_information(file_name):
 def compare_data(new, old):
     for st in new:
         if old.count(st) == 0:
-            bot.sendMessage(chat_id=chat_id, text="안녕 마스터!! 새 공지가 올라왔어, 공지는 "
+            for ids in chat_id:
+                bot.sendMessage(chat_id=ids, text="안녕 마스터!! 새 공지가 올라왔어, 공지는 "
                                                   + st + " 인 모양이야!!" )
-            print('diff')
+                print('diff')
         else:
             pass
         
 
 
 ###### main #####
+
+load_chat_id()
 
 cmp_old = []
 cmp_new = []
