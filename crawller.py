@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import telegram
 import time
+import telepot
 
 import sys
 import unicodedata
@@ -18,6 +19,11 @@ data_chat_id = 'chat_id.txt'
 
 #Telegram Information
 my_token = '406303272:AAF4zhQXYz0pR-mD6kMZgQX-mKmOLp9vFQA'
+
+bot = telepot.Bot(my_token)
+bot.deleteWebhook()
+
+
 bot =telegram.Bot(token = my_token)
 updates = bot.getUpdates()
 chat_id = []
@@ -129,6 +135,8 @@ def compare_data(new, old):
 
 
 ###### main #####
+
+
 
 load_chat_id()
 
