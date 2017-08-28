@@ -244,7 +244,7 @@ load_information(data_ict, cmp_old)
 
 while True:
     print('Sleep 60 seconds...')
-    time.sleep(1)
+    time.sleep(61)
     
     #ict get writing num
     ict_geturl(2)
