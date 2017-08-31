@@ -9,6 +9,7 @@ FUNCTION_STR = '[CRAWLER] '
 
 # Where is chromedriver
 path_chromedriver = "D:\\University\\dev\\chromedriver.exe"
+path_panthomjs = "D:\\University\\dev\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe"
 
 #Page URL
 cse_notice_url = 'http://cse.cau.ac.kr/20141201/sub05/sub0501.php'
@@ -36,8 +37,10 @@ ict_information = {'url' : ict_notice_url, 'selector' : ict_selector, 'site_name
 cau_information = {'url' : cau_notice_url, 'selector' : cau_selector, 'site_name' : cau_site_name, 'data' : cau_data}
 
 def get_driver():
-    driver_dir = path_chromedriver
-    driver = webdriver.Chrome(driver_dir)
+    driver_dir = path_panthomjs
+    # driver = webdriver.Chrome(driver_dir)
+    driver = webdriver.PhantomJS(driver_dir)
+    
     # driver.implicitly_wait(3)
     return driver
     
