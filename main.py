@@ -21,9 +21,10 @@ def crawl_set():
 if __name__ == "__main__":
     
     load_set(cmp_old)
-    del cmp_old[1]
+    # For Test (Erase 1 Old Notice)
+    # del cmp_old[1]
     while True:
-        log_func.log('Crawlling', FUNCTION_STR)
+        log_func._log('Crawlling', FUNCTION_STR)
         # Crawling
         bg_driver = seleniumCrawller.get_driver()
         crawl_set()

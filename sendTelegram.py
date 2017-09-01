@@ -19,7 +19,7 @@ bot =telegram.Bot(token = my_token)
 
 FUNCTION_STR = '[SENDDER] '
 
-def logging(input_str):
+def _logging(input_str):
     t = time.localtime()
     BASE_LOG = str(time.asctime(t)) + " :: " + FUNCTION_STR + input_str
     print(BASE_LOG)
@@ -30,8 +30,8 @@ data_chat_id = 'chat_id.txt'
 chat_id = []
 
 
-def load_chat_id():
-    log_func.log('Load Chat ID', FUNCTION_STR)
+def _load_chat_id():
+    log_func._log('Load Chat ID', FUNCTION_STR)
     # IOException
     try:
         fp = open(data_chat_id, "r", encoding='UTF8')
@@ -57,10 +57,11 @@ def load_chat_id():
     print (chat_id)
     fp.close()
 
+#Compare with send
 def compare_data(new, old):
-    logging('Load Telegram chat id')
-    load_chat_id()
-    logging('Load Complete')
+    _logging('Load Telegram chat id')
+    _load_chat_id()
+    _logging('Load Complete')
     
     idx = 0
     for st in new:
@@ -76,7 +77,7 @@ def compare_data(new, old):
                     str += returnPageUrl.cau_url_ret()
             
             for ids in chat_id:
-                log_func.log('Send Message.. '+ids, FUNCTION_STR)
+                log_func._log('Send Message.. ' + ids, FUNCTION_STR)
                 bot.sendMessage(chat_id=ids, text=str, parse_mode='Markdown')
             
             idx += 1

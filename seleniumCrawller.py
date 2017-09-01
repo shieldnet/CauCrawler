@@ -46,20 +46,20 @@ def get_driver():
     
 
 def crawller(information_list):
-    log_func.log('Information Load',FUNCTION_STR)
+    log_func._log('Information Load', FUNCTION_STR)
     
     url = information_list['url']
     selector = information_list['selector']
     site_name = information_list['site_name']
     data = information_list['data']
 
-    log_func.log('Crawlling Start :' + site_name, FUNCTION_STR)
+    log_func._log('Crawlling Start :' + site_name, FUNCTION_STR)
     driver = get_driver()
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     notices = soup.select(selector)
-    log_func.log('HTML parsed', FUNCTION_STR)
+    log_func._log('HTML parsed', FUNCTION_STR)
     
     fp = open(data, "w", encoding='UTF8')
         
@@ -67,6 +67,6 @@ def crawller(information_list):
         fp.write(site_name + ' : ' + title.text.strip()+'\n')
         
     fp.close()
-    log_func.log('File Write Complete..', FUNCTION_STR)
+    log_func._log('File Write Complete..', FUNCTION_STR)
     
     driver.close()
