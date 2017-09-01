@@ -70,7 +70,7 @@ def compare_data(new, old):
             if st.find('창의') != -1:
                 str += returnPageUrl.ict_url_ret()
             else:
-                if st.find('컴퓨터'):
+                if st.find('컴퓨터') != -1:
                     str += returnPageUrl.cse_url_ret()
                 else:
                     str += returnPageUrl.cau_url_ret()
