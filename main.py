@@ -1,4 +1,4 @@
-import seleniumCrawller
+import crawl
 import loadInformation
 import sendTelegram
 import log_func
@@ -9,14 +9,14 @@ cmp_new = []
 FUNCTION_STR = '[  MAIN ] '
 
 def load_set(destination):
-    loadInformation.load_information(seleniumCrawller.cse_data, destination)
-    loadInformation.load_information(seleniumCrawller.ict_data, destination)
-    loadInformation.load_information(seleniumCrawller.cau_data, destination)
+    loadInformation.load_information(crawl.cse_data, destination)
+    loadInformation.load_information(crawl.ict_data, destination)
+    loadInformation.load_information(crawl.cau_data, destination)
     
 def crawl_set():
-    seleniumCrawller.crawller(seleniumCrawller.cse_information)
-    seleniumCrawller.crawller(seleniumCrawller.ict_information)
-    seleniumCrawller.crawller(seleniumCrawller.cau_information)
+    crawl.crawller(crawl.cse_information)
+    crawl.crawller(crawl.ict_information)
+    crawl.crawller(crawl.cau_information)
 
 if __name__ == "__main__":
     
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     while True:
         log_func._log('Crawlling', FUNCTION_STR)
         # Crawling
-        bg_driver = seleniumCrawller.get_driver()
+        bg_driver = crawl.get_driver()
         crawl_set()
         bg_driver.close()
         
