@@ -11,7 +11,7 @@ cmp_data = {}
 cmp_to = {}
 
 #Telegram Information
-my_token = '406303272:AAF4zhQXYz0pR-mD6kMZgQX-mKmOLp9vFQA'
+my_token = '' #Add Your Authentication Token
 bot =telegram.Bot(token = my_token)
 
 # compare crawl data from 'data.txt'
