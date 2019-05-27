@@ -14,5 +14,9 @@ def ict_url_ret():
 def cau_url_ret():
     retstr = '[중앙대학교 링크]('
     retstr += 'https://www.cau.ac.kr/04_ulife/causquare/notice/notice_list.php?bbsId=cau_notice&category1=%C7%D0%BB%E7)'
+
+def dormitory_url_ret():
+    retstr = '[중앙대학교 기숙사 블루미르홀]('
+    retstr += 'https://dormitory.cau.ac.kr/bbs/bbs_list.php?bbsID=notice&bbsID=notice)'
     
     return retstr

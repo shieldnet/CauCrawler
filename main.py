@@ -11,12 +11,14 @@ FUNCTION_STR = '[  MAIN ] '
 def load_set(destination):
     loadInformation.load_information(crawl.cse_data, destination)
     loadInformation.load_information(crawl.ict_data, destination)
-    loadInformation.load_information(crawl.cau_data, destination)
+#    loadInformation.load_information(crawl.dormitory_data, destination)
+#   loadInformation.load_information(crawl.cau_data, destination)
     
 def crawl_set():
     crawl.crawller(crawl.cse_information)
     crawl.crawller(crawl.ict_information)
-    crawl.crawller(crawl.cau_information)
+#    crawl.crawller(crawl.dormitory_information)
+#    crawl.crawller(crawl.cau_information)
 
 if __name__ == "__main__":
     
@@ -26,9 +28,9 @@ if __name__ == "__main__":
     while True:
         log_func._log('Crawlling', FUNCTION_STR)
         # Crawling
-        bg_driver = crawl.get_driver()
+        #bg_driver = crawl.get_driver()
         crawl_set()
-        bg_driver.close()
+        #bg_driver.close()
         
         load_set(cmp_new)
         
@@ -37,4 +39,4 @@ if __name__ == "__main__":
         cmp_old = list(cmp_new)
         del cmp_new[:]
         break
-    
+   

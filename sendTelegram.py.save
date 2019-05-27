@@ -30,6 +30,7 @@ data_chat_id = 'chat_id.txt'
 chat_id = []
 
 
+
 def _load_chat_id():
     log_func._log('Load Chat ID', FUNCTION_STR)
     # IOException
